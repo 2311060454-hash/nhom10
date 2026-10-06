@@ -1,4 +1,4 @@
-# ĐỒ ÁN TỐT NGHIỆP: HỆ THỐNG QUẢN LÝ SHOP QUẦN ÁO THEO KIẾN TRÚC HƯỚNG DỊCH VỤ (SOA)
+HỆ THỐNG QUẢN LÝ SHOP QUẦN ÁO THEO KIẾN TRÚC HƯỚNG DỊCH VỤ (SOA)
 
 > **Nhóm 10 — Chuyên ngành Công nghệ Phần mềm**  
 > **Công nghệ:** Java 17, Spring Boot 3.5, ReactJS + Vite, Bootstrap 5, MySQL 8  
