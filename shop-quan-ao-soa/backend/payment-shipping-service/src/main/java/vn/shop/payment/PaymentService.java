@@ -12,8 +12,12 @@ import java.util.*;
 @Service
 public class PaymentService {
  private final GuardRepository guard;private final PaymentRepository payments;private final ShipmentRepository shipments;
+ @org.springframework.beans.factory.annotation.Value("${bank.name:}") private String bankName;
+ @org.springframework.beans.factory.annotation.Value("${bank.account-number:}") private String bankAccountNumber;
+ @org.springframework.beans.factory.annotation.Value("${bank.account-name:}") private String bankAccountName;
  private final CommandRepository commands;private final EventRepository events;private final RefundRepository refunds;private final ObjectMapper mapper;
  public PaymentService(GuardRepository g,PaymentRepository p,ShipmentRepository s,CommandRepository c,EventRepository e,RefundRepository r,ObjectMapper m){guard=g;payments=p;shipments=s;commands=c;events=e;refunds=r;mapper=m;}
+ public BankConfig bankConfig(){boolean enabled=text(bankName)&&text(bankAccountNumber)&&text(bankAccountName);return new BankConfig(enabled,enabled?bankName.trim():null,enabled?bankAccountNumber.trim():null,enabled?bankAccountName.trim():null);}
  @Transactional public View execute(String orderId,String commandId,Command in){
   UUID.fromString(orderId);if(!commandId.matches("[A-Za-z0-9_-]{8,100}"))throw new ApiException(400,"Mã yêu cầu không hợp lệ");
   if(guard.lock()==null)throw new IllegalStateException("Missing payment guard");
@@ -22,17 +26,24 @@ public class PaymentService {
   Payment p=payments.findById(orderId).orElse(null);Shipment s;
   if(p==null){
    if(!Set.of("INIT","CANCEL").contains(in.action()))throw new ApiException(409,"Chưa khởi tạo thanh toán");
-   p=new Payment();p.orderId=orderId;p.userId=in.userId();p.method=in.method();p.amount=in.amount();p=payments.save(p);
+   if(in.method().equals("BANK_TRANSFER")&&!bankConfig().enabled())throw new ApiException(409,"Chuyển khoản ngân hàng chưa được cấu hình");
+   p=new Payment();p.orderId=orderId;p.userId=in.userId();p.method=in.method();p.amount=in.amount();if(p.method.equals("BANK_TRANSFER")){p.bankName=bankName.trim();p.bankAccountNumber=bankAccountNumber.trim();p.bankAccountName=bankAccountName.trim();}p=payments.save(p);
    s=new Shipment();s.orderId=orderId;s.recipient=in.recipient();s.phone=in.phone();s.address=in.address();s.shippingFee=in.shippingFee();s=shipments.save(s);
   }else{s=shipments.findById(orderId).orElseThrow(ApiException::missing);if(p.userId!=in.userId()||!p.method.equals(in.method())||p.amount.compareTo(in.amount())!=0||s.shippingFee.compareTo(in.shippingFee())!=0)throw new ApiException(409,"Thông tin thanh toán không khớp đơn");}
   switch(in.action()){
    case "INIT" -> {}
    case "SIM_SUCCESS","SIM_FAILURE" -> {
     require(p.method.equals("SIMULATED")&&p.state.equals("UNPAID")&&s.state.equals("NEW"),"Giao dịch mô phỏng không còn chờ xử lý");
-    p.state=in.action().equals("SIM_SUCCESS")?"SIMULATED_PAID":"SIMULATED_FAILED";p.reference="LOCAL-SIM-"+commandId;
+   p.state=in.action().equals("SIM_SUCCESS")?"SIMULATED_PAID":"SIMULATED_FAILED";p.reference="LOCAL-SIM-"+commandId;
+   }
+   case "BANK_CONFIRM" -> {
+    require(p.method.equals("BANK_TRANSFER")&&p.state.equals("UNPAID")&&s.state.equals("NEW")&&text(in.reference()),"Chỉ xác nhận chuyển khoản đang chờ bằng mã giao dịch ngân hàng");
+    String reference=in.reference().trim();
+    require(!payments.existsByMethodAndReference("BANK_TRANSFER",reference),"Mã giao dịch ngân hàng đã dùng cho đơn khác");
+    p.state="PAID";p.reference=reference;
    }
    case "SHIP" -> {
-    require(s.state.equals("NEW")&&(p.method.equals("COD")&&p.state.equals("UNPAID")||p.state.equals("SIMULATED_PAID")),"Đơn chưa đủ điều kiện giao");
+    require(s.state.equals("NEW")&&(p.method.equals("COD")&&p.state.equals("UNPAID")||p.method.equals("BANK_TRANSFER")&&p.state.equals("PAID")||p.state.equals("SIMULATED_PAID")),"Đơn chưa đủ điều kiện giao");
     require(text(in.carrier())&&text(in.tracking())&&text(in.assignee())&&in.carrierCost()!=null,"Nhập đơn vị, mã vận đơn, người phụ trách và chi phí giao");
     require(!shipments.existsByCarrierAndTrackingAndOrderIdNot(in.carrier().trim(),in.tracking().trim(),orderId),"Mã vận đơn đã dùng cho đơn khác");
     s.carrier=in.carrier().trim();s.tracking=in.tracking().trim();s.assignee=in.assignee().trim();s.carrierCost=in.carrierCost();s.state="SHIPPING";
@@ -81,13 +92,13 @@ public class PaymentService {
   View result=view(p,s);PaymentCommand c=new PaymentCommand();c.id=commandId;c.orderId=orderId;c.requestHash=hash;c.response=encode(result);commands.save(c);return result;
  }
  private void cancelPayment(Payment p,String reason){
-  require(!p.state.equals("PAID"),"Tiền COD đã thu cần quy trình hoàn tiền riêng");
+  require(!p.state.equals("PAID"),"Khoản đã thanh toán cần quy trình hoàn tiền riêng");
   if(p.state.equals("SIMULATED_PAID")){Refund r=new Refund();r.orderId=p.orderId;r.amount=p.amount;r.reason=reason;refunds.save(r);p.state="SIMULATED_REFUNDED";}
   else if(!p.state.equals("SIMULATED_REFUNDED")&&!p.state.equals("SIMULATED_FAILED"))p.state="CANCELLED";
  }
  @Transactional(readOnly=true) public View get(String id,long caller,boolean manager){Payment p=payments.findById(id).orElseThrow(ApiException::missing);if(!manager&&p.userId!=caller)throw ApiException.missing();return view(p,shipments.findById(id).orElseThrow(ApiException::missing),manager);}
  private View view(Payment p,Shipment s){return view(p,s,true);}
- private View view(Payment p,Shipment s,boolean manager){return new View(p.orderId,p.userId,p.method,p.state,p.amount,p.reference,s.state,s.recipient,s.phone,s.address,s.carrier,s.tracking,manager?s.assignee:null,s.shippingFee,manager?s.carrierCost:null,p.updatedAt,events.findByOrderIdOrderByIdAsc(p.orderId).stream().map(e->new Event(e.action,e.actorId,e.note,e.createdAt)).toList(),refunds.findByOrderId(p.orderId).stream().map(r->new RefundView(r.amount,r.state,r.reason,manager?r.reference:null,r.createdAt,r.updatedAt)).toList());}
+ private View view(Payment p,Shipment s,boolean manager){return new View(p.orderId,p.userId,p.method,p.state,p.amount,p.reference,p.bankName,p.bankAccountNumber,p.bankAccountName,s.state,s.recipient,s.phone,s.address,s.carrier,s.tracking,manager?s.assignee:null,s.shippingFee,manager?s.carrierCost:null,p.updatedAt,events.findByOrderIdOrderByIdAsc(p.orderId).stream().map(e->new Event(e.action,e.actorId,e.note,e.createdAt)).toList(),refunds.findByOrderId(p.orderId).stream().map(r->new RefundView(r.amount,r.state,r.reason,manager?r.reference:null,r.createdAt,r.updatedAt)).toList());}
  private static boolean text(String s){return s!=null&&!s.isBlank();}
  private static void require(boolean condition,String message){if(!condition)throw new ApiException(409,message);}
  private String encode(Object value){try{return mapper.writeValueAsString(value);}catch(Exception e){throw new IllegalStateException(e);}}

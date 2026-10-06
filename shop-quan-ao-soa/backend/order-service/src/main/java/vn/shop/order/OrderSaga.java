@@ -24,7 +24,7 @@ public class OrderSaga {
     var held=remote.mutate(id,"",Map.of("items",lines));
     if(!Set.of("HELD","COMMITTED").contains(held.path("state").asText())){OrderService.change(o,"FAIL_PENDING",0);return;}
     PaymentBridge.project(o,payment.initialize(o));
-    remote.mutate(id,"/commit",Map.of());if(o.couponCode!=null)promotion.commit(o);OrderService.change(o,o.paymentMethod.equals("SIMULATED")?"AWAITING_PAYMENT":"PLACED",0);
+    remote.mutate(id,"/commit",Map.of());if(o.couponCode!=null)promotion.commit(o);OrderService.change(o,o.paymentMethod.equals("SIMULATED")?"AWAITING_PAYMENT":o.paymentMethod.equals("BANK_TRANSFER")?"AWAITING_BANK":"PLACED",0);
    }catch(ApiException e){if(e.status()==409)OrderService.change(o,"FAIL_PENDING",0);else if(e.status()!=503)throw e;}
   }else{
    String target=o.state.equals("CANCEL_PENDING")?"CANCELLED":"FAILED";

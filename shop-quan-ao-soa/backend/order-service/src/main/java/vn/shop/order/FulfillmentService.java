@@ -23,9 +23,11 @@ public class FulfillmentService {
    require(o.createdAt.isAfter(Instant.now().minusSeconds(900)),"Hết thời hạn thanh toán mô phỏng");
   }else{
    if(!manager)throw new ApiException(403,"Chỉ ADMIN/STAFF được xử lý vận chuyển và COD");
-   String expected=switch(in.action()){case "SHIP"->"PACKING";case "DELIVER","DELIVERY_FAIL"->"SHIPPED";case "RETRY_SHIP","RETURN_RECEIVED"->"DELIVERY_FAILED";case "COLLECT_COD"->"DELIVERED";default->throw new ApiException(400,"Thao tác không hỗ trợ");};
+   if(in.action().equals("BANK_CONFIRM")&&!vn.shop.common.Caller.role("ADMIN"))throw new ApiException(403,"Chỉ ADMIN được đối soát chuyển khoản");
+   String expected=switch(in.action()){case "BANK_CONFIRM"->"AWAITING_BANK";case "SHIP"->"PACKING";case "DELIVER","DELIVERY_FAIL"->"SHIPPED";case "RETRY_SHIP","RETURN_RECEIVED"->"DELIVERY_FAILED";case "COLLECT_COD"->"DELIVERED";default->throw new ApiException(400,"Thao tác không hỗ trợ");};
    require(o.state.equals(expected),"Trạng thái đơn không cho phép thao tác này");
    if(in.action().equals("COLLECT_COD"))require(o.paymentMethod.equals("COD"),"Đây không phải đơn COD");
+   if(in.action().equals("BANK_CONFIRM"))require(o.paymentMethod.equals("BANK_TRANSFER")&&in.reference()!=null&&!in.reference().isBlank(),"Cần mã giao dịch ngân hàng để xác nhận");
   }
   var c=new FulfillmentCommand();c.id=UUID.randomUUID().toString();c.orderId=orderId;c.requestKey=key;c.requestHash=hash;c.action=in.action();c.actorId=actor;c.payload=payload;commands.save(c);o.pendingCommandId=c.id;o.updatedAt=Instant.now();return view(c);
  }
@@ -36,8 +38,8 @@ public class FulfillmentService {
   try{
    bridge.initialize(o);var result=bridge.execute(o,c.id,c.actorId,decode(c.payload));PaymentBridge.project(o,result);
    String next=switch(c.action){
-    case "SIM_SUCCESS"->"PLACED";case "SIM_FAILURE"->"FAIL_PENDING";case "SHIP","RETRY_SHIP"->"SHIPPED";
-    case "DELIVER"->o.paymentState.equals("SIMULATED_PAID")?"COMPLETED":"DELIVERED";
+    case "SIM_SUCCESS","BANK_CONFIRM"->"PLACED";case "SIM_FAILURE"->"FAIL_PENDING";case "SHIP","RETRY_SHIP"->"SHIPPED";
+    case "DELIVER"->Set.of("PAID","SIMULATED_PAID").contains(o.paymentState)?"COMPLETED":"DELIVERED";
     case "COLLECT_COD"->"COMPLETED";case "DELIVERY_FAIL"->"DELIVERY_FAILED";case "RETURN_RECEIVED"->"CANCEL_PENDING";
     default->throw new IllegalStateException("Unexpected persisted action");};
    OrderService.change(o,next,c.actorId);c.state="DONE";o.pendingCommandId=null;

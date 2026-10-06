@@ -3,7 +3,7 @@ import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.*;
 import java.util.List;
 interface GuardRepository extends JpaRepository<PaymentGuard,Long> { @Lock(LockModeType.PESSIMISTIC_WRITE) @Query("select g from PaymentGuard g where g.id=1") PaymentGuard lock(); }
-interface PaymentRepository extends JpaRepository<Payment,String> {}
+interface PaymentRepository extends JpaRepository<Payment,String> { boolean existsByMethodAndReference(String method,String reference); }
 interface ShipmentRepository extends JpaRepository<Shipment,String> { boolean existsByCarrierAndTrackingAndOrderIdNot(String carrier,String tracking,String orderId); }
 interface CommandRepository extends JpaRepository<PaymentCommand,String> {}
 interface EventRepository extends JpaRepository<FulfillmentEvent,Long> { List<FulfillmentEvent> findByOrderIdOrderByIdAsc(String orderId); }

@@ -10,6 +10,9 @@ import java.time.Instant;
  @Column(length=30,nullable=false) public String state="UNPAID";
  @Column(precision=19,scale=2,nullable=false) public BigDecimal amount;
  @Column(length=190) public String reference;
+ @Column(length=120) public String bankName;
+ @Column(length=50) public String bankAccountNumber;
+ @Column(length=160) public String bankAccountName;
  public Instant createdAt=Instant.now();public Instant updatedAt=Instant.now();
 }
 @Entity @Table(name="shipments",uniqueConstraints=@UniqueConstraint(columnNames={"carrier","tracking"})) class Shipment {

@@ -16,6 +16,9 @@ import java.util.*;
 @Service
 public class OrderService {
  private final GuardRepository guard; private final CartRepository carts; private final OrderRepository orders; private final OrderRemote remote; private final PromotionBridge promotion; private final ObjectMapper mapper;
+ @org.springframework.beans.factory.annotation.Value("${bank.account-number:}") private String bankAccountNumber;
+ @org.springframework.beans.factory.annotation.Value("${bank.account-name:}") private String bankAccountName;
+ @org.springframework.beans.factory.annotation.Value("${bank.name:}") private String bankName;
  public OrderService(GuardRepository g,CartRepository c,OrderRepository o,OrderRemote r,PromotionBridge promo,ObjectMapper m){guard=g;carts=c;orders=o;remote=r;promotion=promo;mapper=m;}
  private void lock(){if(guard.lock()==null)throw new IllegalStateException("Missing order guard");}
  private Cart cart(long user){return carts.findById(user).orElseGet(()->{Cart c=new Cart();c.userId=user;return carts.save(c);});}
@@ -31,6 +34,7 @@ public class OrderService {
  @Transactional public void remove(long user,Long variant){lock();Cart c=cart(user);if(variant==null)c.items.clear();else c.items.removeIf(i->i.variantId==variant);c.revision++;c.updatedAt=Instant.now();}
  @Transactional public OrderView checkout(long user,String key,Checkout in){
   if(!key.matches("[A-Za-z0-9_-]{8,100}"))throw new ApiException(400,"Idempotency-Key không hợp lệ");
+  if("BANK_TRANSFER".equals(in.paymentMethod())&&(bankAccountNumber==null||bankAccountNumber.isBlank()||bankAccountName==null||bankAccountName.isBlank()||bankName==null||bankName.isBlank()))throw new ApiException(409,"Chuyển khoản ngân hàng chưa được cấu hình");
   lock();String hash=hash(in);var previous=orders.findByUserIdAndRequestKey(user,key);
   if(previous.isPresent()){if(!previous.get().requestHash.equals(hash))throw new ApiException(409,"Key đã dùng với nội dung khác");return orderView(previous.get());}
   Cart c=cart(user);if(c.revision!=in.cartRevision())throw new ApiException(409,"Giỏ hàng đã thay đổi. Hãy tải lại trước khi đặt");
@@ -56,7 +60,8 @@ public class OrderService {
   lock();ShopOrder o=owned(id,user,manage);if(o.pendingCommandId!=null)throw new ApiException(409,"Thao tác thanh toán/vận chuyển đang được đối soát");
   if(state.equals("CANCELLED")){
    if(o.state.equals("CANCELLED")||o.state.equals("CANCEL_PENDING"))return orderView(o);
-   if(!Set.of("PROCESSING","AWAITING_PAYMENT","PLACED").contains(o.state)&&!(manage&&Set.of("CONFIRMED","PACKING").contains(o.state)))throw new ApiException(409,"Đơn không còn được phép hủy");
+   if(o.paymentMethod.equals("BANK_TRANSFER")&&o.paymentState.equals("PAID"))throw new ApiException(409,"Đơn chuyển khoản đã được xác nhận; cần quy trình hoàn tiền trước khi hủy");
+   if(!Set.of("PROCESSING","AWAITING_PAYMENT","AWAITING_BANK","PLACED").contains(o.state)&&!(manage&&Set.of("CONFIRMED","PACKING").contains(o.state)))throw new ApiException(409,"Đơn không còn được phép hủy");
    change(o,"CANCEL_PENDING",user);
   }else{
    if(!manage)throw new ApiException(403,"Không có quyền xử lý đơn");
