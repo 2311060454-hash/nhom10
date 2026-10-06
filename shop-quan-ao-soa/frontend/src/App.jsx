@@ -13,6 +13,7 @@ import { api, errorMessage } from './api';
 import { CatalogPage, ProductDetail, ManageProducts, ProductEditor, MetadataPage, InventoryPage } from './CatalogPages';
 import { BannerManager, StoreAnnouncement, StoreContentManager, StoreInfoPage } from './StorePages';
 import ShippingPage from './ShippingPage';
+import PermissionMatrixPage from './PermissionMatrixPage';
 
 const Auth = createContext(null);
 const useAuth = () => useContext(Auth);
@@ -80,6 +81,7 @@ export default function App() {
     <Route path="/login" element={<Login />} /><Route path="/register" element={<Register />} />
     <Route path="/forgot-password" element={<Forgot />} /><Route path="/reset-password" element={<Reset />} />
     <Route path="/account" element={<Guard><Account /></Guard>} /><Route path="/addresses" element={<Guard><Addresses /></Guard>} />
+    <Route path="/admin/permissions" element={<Guard role="ADMIN"><PermissionMatrixPage /></Guard>} />
     <Route path="/admin/users" element={<Guard role="ADMIN"><Users /></Guard>} /><Route path="/admin/audit" element={<Guard role="ADMIN"><Audit /></Guard>} />
     <Route path="/staff/profile" element={<Guard role="STAFF"><Account /></Guard>} />
     <Route path="/staff" element={<Guard role="STAFF"><StaffDashboard inventoryWrite={!!user?.inventoryWrite} /></Guard>} />
@@ -186,7 +188,8 @@ function AdminLayout({ children }) {
         )}
         {isAdmin && (
           <div className="admin-nav-group">
-            <div className="admin-nav-title">HỆ THỐNG</div>
+            <div className="admin-nav-title">HỆ THỐNG & PHÂN QUYỀN</div>
+            <NavLink to="/admin/permissions">🔐 Phân quyền & Vai trò (RBAC)</NavLink>
             <NavLink to="/admin/users">👥 Quản lý người dùng</NavLink>
             <NavLink to="/admin/audit">📝 Nhật ký hoạt động</NavLink>
           </div>
@@ -255,7 +258,7 @@ function Users() {
   const [data, setData] = useState(null), [q, setQ] = useState(''), [filter, setFilter] = useState({ q: '', role: '', page: 0 }), [selected, setSelected] = useState(null), [viewingUser, setViewingUser] = useState(null), a = useAction();
   const load = async () => setData((await api.get('/admin/users', { params: filter })).data);
   useEffect(() => { a.run(load); }, [filter]);
-  return <><div className="page-heading"><p className="eyebrow">QUẢN TRỊ</p><h1>Quản lý tài khoản</h1><p className="text-muted">Quyền truy cập được kiểm tra tại máy chủ.</p></div><Notice {...a}/><section className="panel mb-4"><form className="d-flex flex-wrap gap-2 mb-4" onSubmit={e => { e.preventDefault(); setFilter({ ...filter, q, page: 0 }); }}><input aria-label="Tìm tài khoản" className="form-control search-input" value={q} onChange={e => setQ(e.target.value)} placeholder="Tên, email hoặc điện thoại" maxLength={100}/><select aria-label="Lọc vai trò" className="form-select w-auto" value={filter.role} onChange={e => setFilter({ ...filter, role: e.target.value, page: 0 })}><option value="">Tất cả vai trò</option>{Object.entries(roleName).map(([key, label]) => <option value={key} key={key}>{label}</option>)}</select><button className="btn btn-primary" disabled={a.busy}>Tìm kiếm</button></form>
+  return <><div className="page-heading d-flex justify-content-between align-items-center flex-wrap gap-2"><div><p className="eyebrow">QUẢN TRỊ</p><h1 className="mb-0">Quản lý tài khoản</h1><p className="text-muted mb-0">Quyền truy cập được kiểm tra tại máy chủ.</p></div><Link to="/admin/permissions" className="btn btn-outline-primary btn-sm">🔐 Xem Ma trận Phân quyền (RBAC)</Link></div><Notice {...a}/><section className="panel mb-4"><form className="d-flex flex-wrap gap-2 mb-4" onSubmit={e => { e.preventDefault(); setFilter({ ...filter, q, page: 0 }); }}><input aria-label="Tìm tài khoản" className="form-control search-input" value={q} onChange={e => setQ(e.target.value)} placeholder="Tên, email hoặc điện thoại" maxLength={100}/><select aria-label="Lọc vai trò" className="form-select w-auto" value={filter.role} onChange={e => setFilter({ ...filter, role: e.target.value, page: 0 })}><option value="">Tất cả vai trò</option>{Object.entries(roleName).map(([key, label]) => <option value={key} key={key}>{label}</option>)}</select><button className="btn btn-primary" disabled={a.busy}>Tìm kiếm</button></form>
     {data === null ? <Loading/> : <><div className="table-responsive"><table className="table align-middle"><thead><tr><th>Họ tên / Email</th><th>Điện thoại</th><th>Vai trò</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody>{data.content.map(u => <tr key={u.id}><td><strong>{u.fullName}</strong><small className="d-block text-muted">{u.email}</small></td><td>{u.phone}</td><td>{u.roles.map(r => roleName[r]).join(', ')}</td><td><span className={`badge ${u.active ? 'text-bg-success' : 'text-bg-secondary'}`}>{u.active ? 'Hoạt động' : 'Đã khóa'}</span></td><td><button className="btn btn-outline-primary btn-sm me-2" onClick={() => setViewingUser(u)}>Hồ sơ & Đơn</button>{u.roles.includes('ADMIN') ? <span className="text-muted">Được bảo vệ</span> : <button className="btn btn-outline-dark btn-sm" onClick={() => setSelected(u)}>Chỉnh quyền</button>}</td></tr>)}</tbody></table>{data.content.length === 0 && <p>Không tìm thấy tài khoản.</p>}</div><div className="d-flex justify-content-between align-items-center"><span>{data.totalElements} tài khoản · Trang {filter.page + 1}/{Math.max(1, data.totalPages)}</span><div><button className="btn btn-outline-dark btn-sm me-2" disabled={filter.page === 0 || a.busy} onClick={() => setFilter({ ...filter, page: filter.page - 1 })}>Trước</button><button className="btn btn-outline-dark btn-sm" disabled={data.last || a.busy} onClick={() => setFilter({ ...filter, page: filter.page + 1 })}>Sau</button></div></div></>}
   </section>{viewingUser && <CustomerDetailModal key={`view-${viewingUser.id}`} user={viewingUser} close={() => setViewingUser(null)} updated={load}/>}{selected && <AccessEditor key={selected.id} user={selected} close={() => setSelected(null)} updated={load}/>}<StaffForm updated={load}/></>;
 }
