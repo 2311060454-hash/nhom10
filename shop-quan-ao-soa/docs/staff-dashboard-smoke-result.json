@@ -1,0 +1,41 @@
+{
+  "passed": 7,
+  "at": "2026-09-24T16:51:50.3745454Z",
+  "checks": [
+    {
+      "totalElements": 0,
+      "status": "PASS",
+      "name": "placed"
+    },
+    {
+      "totalElements": 0,
+      "status": "PASS",
+      "name": "packing"
+    },
+    {
+      "totalElements": 0,
+      "status": "PASS",
+      "name": "shipped"
+    },
+    {
+      "totalElements": 0,
+      "status": "PASS",
+      "name": "returns"
+    },
+    {
+      "totalElements": 0,
+      "status": "PASS",
+      "name": "support"
+    },
+    {
+      "totalElements": 0,
+      "status": "PASS",
+      "name": "guest"
+    },
+    {
+      "totalElements": 21,
+      "status": "PASS",
+      "name": "low"
+    }
+  ]
+}

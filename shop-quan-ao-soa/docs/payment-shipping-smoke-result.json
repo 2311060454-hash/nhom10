@@ -1,0 +1,381 @@
+{
+  "checks": [
+    {
+      "name": "Tạo khách kiểm thử",
+      "status": "PASS"
+    },
+    {
+      "name": "Sản phẩm riêng cho smoke",
+      "status": "PASS"
+    },
+    {
+      "name": "Nhập 10 đơn vị thử nghiệm",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ COD",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo COD",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF xác nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không được giao hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Không thu COD trước khi giao",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Không hủy khi hàng đang giao",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Giao thành công không tự ghi đã thu COD",
+      "status": "PASS"
+    },
+    {
+      "name": "COLLECT_COD được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "COLLECT_COD retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "COLLECT_COD không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "COLLECT_COD command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Gọi lại thu COD sau hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Cùng key khác payload bị chặn",
+      "status": "PASS"
+    },
+    {
+      "name": "COD ghi nhận một lần",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không nhận giá vốn vận chuyển",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không đọc thanh toán",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không đọc giao hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không mô phỏng thay chủ đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Hủy đơn đã thanh toán mô phỏng",
+      "status": "PASS"
+    },
+    {
+      "name": "Hủy lặp đơn mô phỏng",
+      "status": "PASS"
+    },
+    {
+      "name": "Hoàn mô phỏng đúng một lần, không phải PAID thật",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_FAILURE được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_FAILURE retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_FAILURE không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_FAILURE command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Mô phỏng thất bại không ghi thành công",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF xác nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "RETRY_SHIP được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "RETRY_SHIP retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "RETRY_SHIP không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "RETRY_SHIP command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVERY_FAIL command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "RETURN_RECEIVED được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "RETURN_RECEIVED retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "RETURN_RECEIVED không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "RETURN_RECEIVED command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Hàng hoàn đã nhập và hoàn mô phỏng",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF xác nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER được tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER retry cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER không tạo command trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER command hoàn tất",
+      "status": "PASS"
+    },
+    {
+      "name": "Hoàn tất mô phỏng vẫn giữ nhãn mô phỏng",
+      "status": "PASS"
+    },
+    {
+      "name": "Tồn cuối 8: chỉ 2 đơn hoàn tất tiêu thụ hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Ngừng bán sản phẩm smoke",
+      "status": "PASS"
+    }
+  ],
+  "runAt": "2026-09-24T13:17:15.7782143+07:00"
+}

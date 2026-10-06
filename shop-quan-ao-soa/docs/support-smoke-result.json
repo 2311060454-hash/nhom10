@@ -1,0 +1,107 @@
+{
+  "checks": [
+    {
+      "name": "ADMIN và STAFF đăng nhập",
+      "status": "PASS"
+    },
+    {
+      "name": "Đăng ký khách 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Đăng ký khách 2",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không xem danh sách quản lý",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không tạo ticket khách",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách tạo ticket",
+      "status": "PASS"
+    },
+    {
+      "name": "Gửi lại cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "Không tạo ticket trùng",
+      "status": "PASS"
+    },
+    {
+      "name": "Cùng key khác nội dung bị chặn",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không đọc ticket",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không thấy ticket trong danh sách",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF thấy ticket mới",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF trả lời",
+      "status": "PASS"
+    },
+    {
+      "name": "Trạng thái chờ khách",
+      "status": "PASS"
+    },
+    {
+      "name": "Retry phản hồi cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "Phản hồi chỉ ghi một lần",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách khác không phản hồi ticket",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách phản hồi bổ sung",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không tự đánh dấu đã xử lý",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đánh dấu đã xử lý",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách đóng ticket đã xử lý",
+      "status": "PASS"
+    },
+    {
+      "name": "Đóng lại idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "Không trả lời ticket đóng",
+      "status": "PASS"
+    },
+    {
+      "name": "Lịch sử và trao đổi lưu trong database",
+      "status": "PASS"
+    }
+  ],
+  "passed": 25,
+  "ticketId": 1,
+  "at": "2026-09-24T06:31:03.1094291Z"
+}

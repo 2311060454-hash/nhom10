@@ -1,0 +1,83 @@
+{
+  "at": "2026-09-24T16:37:55.5906146Z",
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "Khách chưa đăng nhập gửi liên hệ"
+    },
+    {
+      "status": "PASS",
+      "name": "Biên nhận chỉ có mã, không lộ thông tin cá nhân"
+    },
+    {
+      "status": "PASS",
+      "name": "Gửi lại cùng key"
+    },
+    {
+      "status": "PASS",
+      "name": "Không tạo yêu cầu trùng"
+    },
+    {
+      "status": "PASS",
+      "name": "Cùng key khác nội dung bị chặn"
+    },
+    {
+      "status": "PASS",
+      "name": "Không có trang xem chi tiết công khai"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF đăng nhập"
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng ký khách kiểm tra quyền"
+    },
+    {
+      "status": "PASS",
+      "name": "CUSTOMER không xem hàng chờ"
+    },
+    {
+      "status": "PASS",
+      "name": "CUSTOMER không sửa liên hệ"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF thấy liên hệ mới"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF xem được nội dung và liên lạc"
+    },
+    {
+      "status": "PASS",
+      "name": "Không giải quyết nếu thiếu ghi chú"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF tiếp nhận"
+    },
+    {
+      "status": "PASS",
+      "name": "Trạng thái đang xử lý được lưu"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF giải quyết"
+    },
+    {
+      "status": "PASS",
+      "name": "Ghi chú và người xử lý được lưu"
+    },
+    {
+      "status": "PASS",
+      "name": "Thao tác lặp giữ nguyên kết quả"
+    },
+    {
+      "status": "PASS",
+      "name": "Ghi chú khác khi retry bị chặn"
+    }
+  ],
+  "passed": 19,
+  "contactId": 1
+}

@@ -1,0 +1,35 @@
+{
+  "sampleOrderId": "fd31fe3d-3936-4611-8abb-7f4eb3916036",
+  "passed": 7,
+  "at": "2026-09-24T16:51:39.8848241Z",
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "STAFF lấy danh sách từ MySQL"
+    },
+    {
+      "status": "PASS",
+      "name": "Tìm theo mã đơn"
+    },
+    {
+      "status": "PASS",
+      "name": "Tìm theo số điện thoại"
+    },
+    {
+      "status": "PASS",
+      "name": "Tìm theo tên người nhận"
+    },
+    {
+      "status": "PASS",
+      "name": "Ngày đặt theo giờ Việt Nam gồm đơn thử"
+    },
+    {
+      "status": "PASS",
+      "name": "Khoảng ngày đảo ngược bị chặn"
+    },
+    {
+      "status": "PASS",
+      "name": "CUSTOMER không tra cứu đơn toàn cửa hàng"
+    }
+  ]
+}

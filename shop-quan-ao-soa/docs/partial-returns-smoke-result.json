@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-09-24T12:03:01.1423577Z",
+  "database": "MySQL localhost:3310",
+  "note": "Chứng từ REFUND-* chỉ là dữ liệu demo; không chứng minh chuyển khoản thật.",
+  "tests": [
+    {
+      "name": "Tạo khách",
+      "status": "PASS"
+    },
+    {
+      "name": "Nhập kho ba đơn vị",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ hai áo",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Xác nhận đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "COLLECT_COD tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "Đã xuất hai, còn một",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách khác không xem yêu cầu",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không tạo yêu cầu",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo yêu cầu trả một phần",
+      "status": "PASS"
+    },
+    {
+      "name": "Tiền hoàn theo giá gốc, không gồm vận chuyển",
+      "status": "PASS"
+    },
+    {
+      "name": "Gửi lại cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "Đổi số lượng dưới cùng key bị chặn",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF nhận hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Kho chỉ cộng một áo",
+      "status": "PASS"
+    },
+    {
+      "name": "COD còn tính đủ trước chứng từ",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không ghi hoàn COD",
+      "status": "PASS"
+    },
+    {
+      "name": "ADMIN ghi chứng từ hoàn COD",
+      "status": "PASS"
+    },
+    {
+      "name": "Doanh thu thuần giảm đúng tiền hoàn",
+      "status": "PASS"
+    },
+    {
+      "name": "Đơn còn hoàn tất với một phần giữ lại",
+      "status": "PASS"
+    },
+    {
+      "name": "Kho không cộng lặp",
+      "status": "PASS"
+    },
+    {
+      "name": "Payment có một refund",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách nhận thông báo hoàn một phần",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách nhận thông báo duyệt trả hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Ngừng bán sản phẩm thử nghiệm",
+      "status": "PASS"
+    }
+  ]
+}

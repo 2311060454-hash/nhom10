@@ -1,0 +1,121 @@
+{
+  "checks": [
+    {
+      "name": "Đăng ký khách 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Đăng ký khách 2",
+      "status": "PASS"
+    },
+    {
+      "name": "Nhập đúng một đơn vị",
+      "status": "PASS"
+    },
+    {
+      "name": "Chặn giỏ trống",
+      "status": "PASS"
+    },
+    {
+      "name": "Lưu giỏ khách 0",
+      "status": "PASS"
+    },
+    {
+      "name": "Nhận yêu cầu đặt 0",
+      "status": "PASS"
+    },
+    {
+      "name": "Gọi lặp đặt 0",
+      "status": "PASS"
+    },
+    {
+      "name": "Chặn key khác payload 0",
+      "status": "PASS"
+    },
+    {
+      "name": "Lưu giỏ khách 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Nhận yêu cầu đặt 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Gọi lặp đặt 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Chặn key khác payload 1",
+      "status": "PASS"
+    },
+    {
+      "name": "Hai khách tranh một đơn vị: chỉ một PLACED",
+      "status": "PASS"
+    },
+    {
+      "name": "Giá snapshot + phí 30000, COD chưa thanh toán",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không đọc được đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không vào danh sách quản lý",
+      "status": "PASS"
+    },
+    {
+      "name": "Không nhảy thẳng đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "Hủy đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Hủy lặp an toàn",
+      "status": "PASS"
+    },
+    {
+      "name": "Hủy hoàn đúng một đơn vị",
+      "status": "PASS"
+    },
+    {
+      "name": "Đơn hủy không xác nhận lại",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF xem danh sách quản lý",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo đơn kiểm thử xử lý STAFF",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF xác nhận đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không hủy đơn đã xác nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF hủy trước giao hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Hủy sau đóng gói hoàn kho đúng",
+      "status": "PASS"
+    },
+    {
+      "name": "Ngừng sản phẩm kiểm thử",
+      "status": "PASS"
+    }
+  ],
+  "runAt": "2026-09-24T13:12:54.1493101+07:00"
+}

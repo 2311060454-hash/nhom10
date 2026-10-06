@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-09-24T16:21:06.0043374Z",
+  "note": "Ba chương trình thử nghiệm đã tắt; tài khoản thử nghiệm vẫn tồn tại để đối chiếu.",
+  "tests": [
+    {
+      "name": "Đăng ký 66a29e88a2-on",
+      "status": "PASS"
+    },
+    {
+      "name": "Đăng ký 66a29e88a2-off",
+      "status": "PASS"
+    },
+    {
+      "name": "Mặc định không đồng ý",
+      "status": "PASS"
+    },
+    {
+      "name": "Bật đồng ý nhận khuyến mãi",
+      "status": "PASS"
+    },
+    {
+      "name": "Auth lưu lựa chọn bật",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo Ưu đãi sản phẩm 66a29e88a2",
+      "status": "PASS"
+    },
+    {
+      "name": "Người đồng ý thấy ưu đãi sản phẩm",
+      "status": "PASS"
+    },
+    {
+      "name": "Người chưa đồng ý không nhận ưu đãi",
+      "status": "PASS"
+    },
+    {
+      "name": "Đồng bộ lặp không tạo thông báo mới",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo Ưu đãi danh mục 66a29e88a2",
+      "status": "PASS"
+    },
+    {
+      "name": "Ưu đãi danh mục dẫn tới bộ lọc",
+      "status": "PASS"
+    },
+    {
+      "name": "Tắt đồng ý nhận khuyến mãi",
+      "status": "PASS"
+    },
+    {
+      "name": "Auth lưu lựa chọn tắt",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo Ưu đãi sau khi tắt 66a29e88a2",
+      "status": "PASS"
+    },
+    {
+      "name": "Không nhận chương trình mới sau khi tắt",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách mặc định tắt vẫn không nhận",
+      "status": "PASS"
+    }
+  ],
+  "database": "MySQL localhost:3310"
+}

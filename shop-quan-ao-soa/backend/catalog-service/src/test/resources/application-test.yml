@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:catalog;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+security:
+  jwt-secret: test-only-jwt-secret-at-least-32-bytes-long
+  internal-key: test-only-internal-key-at-least-32-bytes-long
+app:
+  upload-dir: target/test-uploads

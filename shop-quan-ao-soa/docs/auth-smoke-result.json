@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-09-24T06:12:08.5482811Z",
+  "baseUrl": "http://127.0.0.1:8080",
+  "note": "Tạo một tài khoản test, khóa ở cuối. Không xóa dữ liệu người dùng.",
+  "database": "MySQL localhost:3310/shop_quan_ao_auth",
+  "tests": [
+    {
+      "status": "PASS",
+      "name": "Đăng ký lưu database",
+      "http": 201
+    },
+    {
+      "status": "PASS",
+      "name": "Chặn email trùng",
+      "http": 409
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng nhập qua Gateway",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Lấy hồ sơ",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Khách không có quyền quản trị",
+      "http": 403
+    },
+    {
+      "status": "PASS",
+      "name": "Thêm địa chỉ",
+      "http": 201
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng nhập khách mẫu",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Chặn truy cập địa chỉ người khác",
+      "http": 404
+    },
+    {
+      "status": "PASS",
+      "name": "Xóa địa chỉ của mình",
+      "http": 204
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng xuất",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "JWT bị thu hồi",
+      "http": 401
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng nhập nhân viên",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Nhân viên không được quản lý quyền",
+      "http": 403
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng nhập quản trị",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Quản trị xem tài khoản",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Kiểm tra phân trang không hợp lệ",
+      "http": 400
+    },
+    {
+      "status": "PASS",
+      "name": "Nhật ký có dữ liệu",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Khóa tài khoản kiểm thử",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "API báo cáo không tồn tại trả 404",
+      "http": 404
+    },
+    {
+      "status": "PASS",
+      "name": "Không công khai API nội bộ",
+      "http": 401
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng xuất khách mẫu",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng xuất nhân viên",
+      "http": 200
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng xuất quản trị",
+      "http": 200
+    }
+  ]
+}

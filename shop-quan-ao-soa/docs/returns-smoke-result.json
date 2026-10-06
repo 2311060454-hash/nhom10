@@ -1,0 +1,223 @@
+{
+  "note": "Sản phẩm thử nghiệm ngừng bán; lịch sử đơn, hoàn tiền và kho được giữ để đối chiếu. Chứng từ REFUND-* là dữ liệu demo, không chứng minh đã chuyển khoản thật.",
+  "timestamp": "2026-09-24T12:04:11.5965769Z",
+  "database": "MySQL localhost:3310",
+  "tests": [
+    {
+      "name": "Tạo khách",
+      "status": "PASS"
+    },
+    {
+      "name": "Nhập kho hai đơn vị",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ COD",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo đơn COD",
+      "status": "PASS"
+    },
+    {
+      "name": "Xác nhận đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "COLLECT_COD tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "Giỏ SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo đơn SIMULATED",
+      "status": "PASS"
+    },
+    {
+      "name": "SIM_SUCCESS tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "Xác nhận đơn",
+      "status": "PASS"
+    },
+    {
+      "name": "Đóng gói",
+      "status": "PASS"
+    },
+    {
+      "name": "SHIP tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "DELIVER tiếp nhận",
+      "status": "PASS"
+    },
+    {
+      "name": "Hai đơn đã xuất hết hai đơn vị",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không xem yêu cầu",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không tạo yêu cầu khách",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách tạo yêu cầu",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không xem hàng đợi trả hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đọc hàng đợi",
+      "status": "PASS"
+    },
+    {
+      "name": "Yêu cầu mới có trong hàng đợi",
+      "status": "PASS"
+    },
+    {
+      "name": "Gửi lặp cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "Key khác bị chặn",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không tự duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "Không thể nhận trước khi duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF nhận đủ hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Người khác không xem yêu cầu",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không tạo yêu cầu khách",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách tạo yêu cầu",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không xem hàng đợi trả hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF đọc hàng đợi",
+      "status": "PASS"
+    },
+    {
+      "name": "Yêu cầu mới có trong hàng đợi",
+      "status": "PASS"
+    },
+    {
+      "name": "Gửi lặp cùng key",
+      "status": "PASS"
+    },
+    {
+      "name": "Key khác bị chặn",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách không tự duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "Không thể nhận trước khi duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF duyệt",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF nhận đủ hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Hai đơn hoàn kho đúng hai đơn vị",
+      "status": "PASS"
+    },
+    {
+      "name": "COD còn doanh thu trước khi hoàn tiền thực tế",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không xác nhận hoàn COD",
+      "status": "PASS"
+    },
+    {
+      "name": "ADMIN ghi chứng từ hoàn COD",
+      "status": "PASS"
+    },
+    {
+      "name": "Ghi lặp cùng chứng từ",
+      "status": "PASS"
+    },
+    {
+      "name": "Chứng từ khác bị chặn",
+      "status": "PASS"
+    },
+    {
+      "name": "COD đã hoàn và loại khỏi doanh thu",
+      "status": "PASS"
+    },
+    {
+      "name": "Doanh thu giảm đúng tổng đơn COD đã hoàn",
+      "status": "PASS"
+    },
+    {
+      "name": "Mô phỏng đã hoàn nhưng không chuyển tiền",
+      "status": "PASS"
+    },
+    {
+      "name": "COD chỉ có một refund",
+      "status": "PASS"
+    },
+    {
+      "name": "Hoàn lặp không cộng kho thêm",
+      "status": "PASS"
+    },
+    {
+      "name": "Khách nhận thông báo đơn trả hàng",
+      "status": "PASS"
+    },
+    {
+      "name": "Ngừng bán sản phẩm kiểm thử",
+      "status": "PASS"
+    }
+  ]
+}

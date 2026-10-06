@@ -1,0 +1,100 @@
+{
+  "completedOrderId": "fd31fe3d-3936-4611-8abb-7f4eb3916036",
+  "passed": 23,
+  "productId": 30,
+  "at": "2026-09-24T16:21:42.6601097Z",
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "Đăng nhập ADMIN/STAFF"
+    },
+    {
+      "status": "PASS",
+      "name": "Dashboard lấy số liệu thật từ các service"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF không đọc doanh thu"
+    },
+    {
+      "status": "PASS",
+      "name": "Ẩn dashboard với khách chưa đăng nhập"
+    },
+    {
+      "status": "PASS",
+      "name": "Tạo khách kiểm thử"
+    },
+    {
+      "status": "PASS",
+      "name": "Tạo sản phẩm báo cáo"
+    },
+    {
+      "status": "PASS",
+      "name": "Nhập kho sản phẩm báo cáo"
+    },
+    {
+      "status": "PASS",
+      "name": "Đặt đơn COD"
+    },
+    {
+      "status": "PASS",
+      "name": "Có thông báo đơn mới"
+    },
+    {
+      "status": "PASS",
+      "name": "Khách khác không đọc thông báo"
+    },
+    {
+      "status": "PASS",
+      "name": "Chủ thông báo đánh dấu đã đọc"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF xác nhận đơn"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF đóng gói"
+    },
+    {
+      "status": "PASS",
+      "name": "SHIP nhận lệnh"
+    },
+    {
+      "status": "PASS",
+      "name": "DELIVER nhận lệnh"
+    },
+    {
+      "status": "PASS",
+      "name": "COLLECT_COD nhận lệnh"
+    },
+    {
+      "status": "PASS",
+      "name": "Doanh thu chỉ cộng COD đã thu"
+    },
+    {
+      "status": "PASS",
+      "name": "Đếm đơn và sản phẩm từ database"
+    },
+    {
+      "status": "PASS",
+      "name": "Báo cáo theo ngày có đơn hoàn tất"
+    },
+    {
+      "status": "PASS",
+      "name": "Tải CSV doanh thu"
+    },
+    {
+      "status": "PASS",
+      "name": "CSV có kỳ và số liệu thực"
+    },
+    {
+      "status": "PASS",
+      "name": "Đơn hoàn tất xuất hiện trong thông báo"
+    },
+    {
+      "status": "PASS",
+      "name": "Đồng bộ lặp không tạo thông báo trùng"
+    }
+  ]
+}

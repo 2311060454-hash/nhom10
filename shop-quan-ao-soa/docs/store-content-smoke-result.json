@@ -1,0 +1,79 @@
+{
+  "tests": [
+    {
+      "name": "Đăng nhập ADMIN và STAFF",
+      "status": "PASS"
+    },
+    {
+      "name": "Đọc nội dung công khai",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không sửa nội dung",
+      "status": "PASS"
+    },
+    {
+      "name": "ADMIN sửa nội dung",
+      "status": "PASS"
+    },
+    {
+      "name": "Nội dung lưu và đọc lại từ MySQL",
+      "status": "PASS"
+    },
+    {
+      "name": "Không cho sửa key không hợp lệ",
+      "status": "PASS"
+    },
+    {
+      "name": "Khôi phục nội dung liên hệ ban đầu",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không tạo banner",
+      "status": "PASS"
+    },
+    {
+      "name": "Chặn link ngoài trang",
+      "status": "PASS"
+    },
+    {
+      "name": "Tạo banner",
+      "status": "PASS"
+    },
+    {
+      "name": "Banner có hiệu lực hiển thị công khai",
+      "status": "PASS"
+    },
+    {
+      "name": "Tải ảnh banner qua Gateway",
+      "status": "PASS"
+    },
+    {
+      "name": "Ảnh công khai đọc được",
+      "status": "PASS"
+    },
+    {
+      "name": "Ảnh PNG thực",
+      "status": "PASS"
+    },
+    {
+      "name": "Từ chối ảnh giả",
+      "status": "PASS"
+    },
+    {
+      "name": "Ngừng hiển thị banner",
+      "status": "PASS"
+    },
+    {
+      "name": "Banner tắt không còn công khai",
+      "status": "PASS"
+    },
+    {
+      "name": "Banner vẫn có trong trang quản trị",
+      "status": "PASS"
+    }
+  ],
+  "timestamp": "2026-09-24T06:51:49.2894052Z",
+  "note": "Banner kiểm thử được tắt; nội dung liên hệ được khôi phục.",
+  "database": "MySQL localhost:3310"
+}

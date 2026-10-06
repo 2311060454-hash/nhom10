@@ -1,0 +1,2 @@
+ALTER TABLE notifications MODIFY COLUMN order_id VARCHAR(36) NULL;
+ALTER TABLE notifications ADD COLUMN link_path VARCHAR(200) NULL;

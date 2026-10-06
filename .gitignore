@@ -1,0 +1,10 @@
+.env
+.env.local
+**/target/
+**/node_modules/
+**/dist/
+**/.idea/
+**/*.log
+**/uploads/
+**/.runtime/
+.tools/

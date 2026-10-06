@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "ADMIN xem báo cáo"
+    },
+    {
+      "status": "PASS",
+      "name": "Tổng sự kiện bằng số dòng chi tiết"
+    },
+    {
+      "status": "PASS",
+      "name": "Tiền hoàn COD và mô phỏng không âm"
+    },
+    {
+      "status": "PASS",
+      "name": "ADMIN xuất CSV"
+    },
+    {
+      "status": "PASS",
+      "name": "CSV khớp số dòng báo cáo"
+    },
+    {
+      "status": "PASS",
+      "name": "CSV có các cột số tiền hoàn"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF không xem báo cáo quản trị"
+    },
+    {
+      "status": "PASS",
+      "name": "CUSTOMER không xem báo cáo"
+    },
+    {
+      "status": "PASS",
+      "name": "Khoảng ngày đảo ngược bị chặn"
+    }
+  ],
+  "fullReturns": 10,
+  "cancelled": 17,
+  "at": "2026-09-24T17:12:05.3818843Z",
+  "partialReturns": 2,
+  "passed": 9
+}

@@ -1,0 +1,35 @@
+{
+  "passed": 7,
+  "rowCount": 72,
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "STAFF xuất CSV"
+    },
+    {
+      "status": "PASS",
+      "name": "Số dòng bằng số biến thể trong MySQL"
+    },
+    {
+      "status": "PASS",
+      "name": "CSV có cột tồn kho và khả dụng"
+    },
+    {
+      "status": "PASS",
+      "name": "Lọc theo ID biến thể chỉ xuất một dòng"
+    },
+    {
+      "status": "PASS",
+      "name": "Bộ lọc sắp hết hàng khớp API"
+    },
+    {
+      "status": "PASS",
+      "name": "Khách chưa đăng nhập bị chặn"
+    },
+    {
+      "status": "PASS",
+      "name": "CUSTOMER không xuất báo cáo kho"
+    }
+  ],
+  "at": "2026-09-24T17:01:32.3326022Z"
+}

@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-05T17:33:26.3233340Z",
+  "passed": 4,
+  "rankingCount": 10,
+  "productCount": 12,
+  "checks": [
+    {
+      "name": "Danh sách công khai có phân trang",
+      "status": "PASS"
+    },
+    {
+      "name": "Hai trang không lặp sản phẩm",
+      "status": "PASS"
+    },
+    {
+      "name": "Thứ tự khớp doanh số Order qua Reporting",
+      "status": "PASS"
+    },
+    {
+      "name": "Endpoint thống kê nội bộ cần khóa service",
+      "status": "PASS"
+    }
+  ]
+}

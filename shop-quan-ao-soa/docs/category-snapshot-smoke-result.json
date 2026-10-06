@@ -1,0 +1,40 @@
+{
+  "at": "2026-09-25T00:48:28.2799688Z",
+  "passed": 8,
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "Đăng ký khách kiểm thử"
+    },
+    {
+      "status": "PASS",
+      "name": "Đăng nhập khách kiểm thử"
+    },
+    {
+      "status": "PASS",
+      "name": "Đọc danh sách sản phẩm"
+    },
+    {
+      "status": "PASS",
+      "name": "Lưu giỏ"
+    },
+    {
+      "status": "PASS",
+      "name": "Tạo đơn"
+    },
+    {
+      "status": "PASS",
+      "name": "Đọc đơn của mình"
+    },
+    {
+      "status": "PASS",
+      "name": "Category ID của dòng đơn khớp Catalog khi đặt"
+    },
+    {
+      "status": "PASS",
+      "name": "Hủy đơn và giải phóng tồn"
+    }
+  ],
+  "orderId": "4c368428-66f6-403c-b00e-fe42aa4b2332",
+  "categoryId": 1
+}

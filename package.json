@@ -1,0 +1,10 @@
+{
+  "name": "nhom10-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix shop-quan-ao-soa/frontend run dev",
+    "build": "npm --prefix shop-quan-ao-soa/frontend run build",
+    "test": "npm --prefix shop-quan-ao-soa/frontend test"
+  }
+}

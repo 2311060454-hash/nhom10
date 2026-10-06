@@ -1,0 +1,44 @@
+{
+  "passed": 9,
+  "realizedRevenue": 1250000.0,
+  "checks": [
+    {
+      "name": "ADMIN xem doanh thu danh mục",
+      "status": "PASS"
+    },
+    {
+      "name": "Tổng danh mục và vận chuyển bằng doanh thu COD đã thu",
+      "status": "PASS"
+    },
+    {
+      "name": "Các danh mục cộng đúng doanh thu hàng hóa",
+      "status": "PASS"
+    },
+    {
+      "name": "Phí giao được tách khỏi hàng hóa",
+      "status": "PASS"
+    },
+    {
+      "name": "ADMIN xuất CSV",
+      "status": "PASS"
+    },
+    {
+      "name": "CSV đủ danh mục",
+      "status": "PASS"
+    },
+    {
+      "name": "STAFF không xem doanh thu quản trị",
+      "status": "PASS"
+    },
+    {
+      "name": "CUSTOMER không xem doanh thu quản trị",
+      "status": "PASS"
+    },
+    {
+      "name": "Ngày đảo ngược trả 400",
+      "status": "PASS"
+    }
+  ],
+  "at": "2026-10-05T17:30:19.6323467Z",
+  "categoryCount": 1
+}

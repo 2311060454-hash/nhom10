@@ -1,0 +1,145 @@
+{
+  "productId": 20,
+  "completedOrderId": "75886eb4-3796-4ffc-b54f-269ebdb63891",
+  "cancelledOrderId": "d25717e9-504f-4644-85c5-b4238216c6fe",
+  "passed": 34,
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "Đăng nhập ADMIN và STAFF"
+    },
+    {
+      "status": "PASS",
+      "name": "Tạo khách 1"
+    },
+    {
+      "status": "PASS",
+      "name": "Tạo khách 2"
+    },
+    {
+      "status": "PASS",
+      "name": "Tạo sản phẩm thử"
+    },
+    {
+      "status": "PASS",
+      "name": "Nhập kho thử"
+    },
+    {
+      "status": "PASS",
+      "name": "Chưa có giá khuyến mãi"
+    },
+    {
+      "status": "PASS",
+      "name": "ADMIN tạo khuyến mãi"
+    },
+    {
+      "status": "PASS",
+      "name": "Giá giảm 10 phần trăm"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF bị từ chối quản lý coupon"
+    },
+    {
+      "status": "PASS",
+      "name": "ADMIN tạo coupon"
+    },
+    {
+      "status": "PASS",
+      "name": "Chưa mua không thể đánh giá"
+    },
+    {
+      "status": "PASS",
+      "name": "Lưu yêu thích"
+    },
+    {
+      "status": "PASS",
+      "name": "Chỉ chủ tài khoản thấy yêu thích"
+    },
+    {
+      "status": "PASS",
+      "name": "Đặt hàng có coupon"
+    },
+    {
+      "status": "PASS",
+      "name": "Đơn lưu giá đã khuyến mãi và giảm coupon"
+    },
+    {
+      "status": "PASS",
+      "name": "Coupon hết lượt khi đang giữ"
+    },
+    {
+      "status": "PASS",
+      "name": "Hủy đơn đầu tiên"
+    },
+    {
+      "status": "PASS",
+      "name": "Coupon được giải phóng khi hủy"
+    },
+    {
+      "status": "PASS",
+      "name": "Đặt hàng có coupon"
+    },
+    {
+      "status": "PASS",
+      "name": "Đơn thứ hai giữ cùng coupon đúng một lần"
+    },
+    {
+      "status": "PASS",
+      "name": "Không xem đơn người khác"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF xác nhận"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF đóng gói"
+    },
+    {
+      "status": "PASS",
+      "name": "SHIP nhận lệnh"
+    },
+    {
+      "status": "PASS",
+      "name": "DELIVER nhận lệnh"
+    },
+    {
+      "status": "PASS",
+      "name": "COLLECT_COD nhận lệnh"
+    },
+    {
+      "status": "PASS",
+      "name": "Khách đã mua gửi đánh giá"
+    },
+    {
+      "status": "PASS",
+      "name": "Chờ duyệt không công khai"
+    },
+    {
+      "status": "PASS",
+      "name": "Không thể ẩn đánh giá của người khác"
+    },
+    {
+      "status": "PASS",
+      "name": "STAFF không duyệt đánh giá"
+    },
+    {
+      "status": "PASS",
+      "name": "ADMIN duyệt đánh giá"
+    },
+    {
+      "status": "PASS",
+      "name": "Đánh giá đã duyệt được công khai"
+    },
+    {
+      "status": "PASS",
+      "name": "Bỏ yêu thích"
+    },
+    {
+      "status": "PASS",
+      "name": "Danh sách yêu thích rỗng sau khi xóa"
+    }
+  ],
+  "at": "2026-09-24T06:15:04.5321575Z"
+}

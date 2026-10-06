@@ -1,0 +1,177 @@
+{
+  "timestamp": "2026-09-24T06:12:19.7792972Z",
+  "note": "Tạo sản phẩm test, ngừng bán ở cuối; STAFF test bị khóa. Bảo toàn lịch sử kho.",
+  "tests": [
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Admin login"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Danh sách và sắp xếp MySQL"
+    },
+    {
+      "name": "Có dữ liệu mẫu sản phẩm",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 201,
+      "name": "Tạo sản phẩm hai biến thể"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Chi tiết công khai"
+    },
+    {
+      "name": "Không lộ giá vốn",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Lọc size màu khuyến mãi"
+    },
+    {
+      "name": "Lọc đúng sản phẩm",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 401,
+      "name": "Chặn quản trị không có JWT"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Nhập một đơn vị"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Retry nhập kho idempotent"
+    },
+    {
+      "name": "Không cộng kho hai lần",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 409,
+      "name": "Chặn xuất vượt tồn"
+    },
+    {
+      "name": "MySQL: hai khách tranh một đơn vị chỉ một thành công",
+      "status": "PASS"
+    },
+    {
+      "name": "Tồn khả dụng bằng 0 sau giữ",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Giải phóng giữ kho"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Giải phóng lặp an toàn"
+    },
+    {
+      "name": "Hoàn đúng một đơn vị",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Giữ kho lần mới"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Commit kho"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Commit lặp"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Hoàn hàng đã xuất"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Hoàn hàng lặp"
+    },
+    {
+      "name": "Kho sau hoàn vẫn bằng 1",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 201,
+      "name": "Tạo STAFF chưa có quyền kho"
+    },
+    {
+      "status": "PASS",
+      "http": 403,
+      "name": "STAFF thiếu quyền bị từ chối ghi kho"
+    },
+    {
+      "status": "PASS",
+      "http": 403,
+      "name": "STAFF không sửa sản phẩm"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Khóa STAFF kiểm thử"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Sửa sản phẩm"
+    },
+    {
+      "status": "PASS",
+      "http": 409,
+      "name": "Chặn ghi đè phiên bản cũ"
+    },
+    {
+      "name": "Upload ảnh qua Gateway",
+      "status": "PASS"
+    },
+    {
+      "name": "Đọc ảnh đã lưu",
+      "status": "PASS"
+    },
+    {
+      "status": "PASS",
+      "http": 204,
+      "name": "Ngừng bán sản phẩm test"
+    },
+    {
+      "status": "PASS",
+      "http": 404,
+      "name": "Sản phẩm ngừng bán không xuất hiện công khai"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Lịch sử kho thực tế"
+    },
+    {
+      "status": "PASS",
+      "http": 200,
+      "name": "Logout quản trị"
+    }
+  ],
+  "database": "MySQL localhost:3310"
+}
