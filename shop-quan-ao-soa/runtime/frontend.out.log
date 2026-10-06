@@ -1,0 +1,33 @@
+
+  VITE v7.3.6  ready in 355 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+  ➜  press h + enter to show help
+6:26:28 PM [vite] (client) hmr update /src/ReturnPanel.jsx
+6:26:37 PM [vite] (client) hmr update /src/App.jsx
+6:26:46 PM [vite] (client) hmr update /src/App.jsx
+6:40:47 PM [vite] (client) hmr update /src/ReturnPanel.jsx
+7:08:24 PM [vite] (client) hmr update /src/CatalogPages.jsx
+7:08:25 PM [vite] (client) hmr update /src/ReportingPages.jsx
+7:09:06 PM [vite] (client) hmr update /src/ReportingPages.jsx
+7:09:07 PM [vite] (client) hmr update /src/App.jsx
+11:29:39 PM [vite] (client) hmr update /src/StorePages.jsx
+11:29:41 PM [vite] (client) hmr update /src/App.jsx
+11:40:50 PM [vite] (client) hmr update /src/App.jsx
+11:45:04 PM [vite] (client) hmr update /src/OrderPages.jsx
+11:55:43 PM [vite] (client) hmr update /src/CatalogPages.jsx
+12:06:13 AM [vite] (client) hmr update /src/App.jsx
+12:06:23 AM [vite] (client) hmr update /src/ReportingPages.jsx
+12:17:08 AM [vite] (client) hmr update /src/App.jsx
+12:17:17 AM [vite] (client) hmr update /src/ReportingPages.jsx
+1:03:24 AM [vite] (client) hmr update /src/OrderPages.jsx
+1:05:21 AM [vite] (client) hmr update /src/OrderPages.jsx
+1:24:18 AM [vite] (client) hmr update /src/CatalogPages.jsx
+1:25:50 AM [vite] (client) hmr update /src/App.jsx
+1:27:04 AM [vite] (client) hmr update /src/ReportingPages.jsx
+1:28:16 AM [vite] (client) hmr update /src/CatalogPages.jsx
+1:32:46 AM [vite] (client) hmr update /src/App.jsx
+1:56:18 AM [vite] (client) hmr update /src/style.css
+1:58:54 AM [vite] (client) hmr update /src/App.jsx
+2:01:59 AM [vite] (client) hmr update /src/App.jsx
+2:04:01 AM [vite] (client) hmr update /src/App.jsx

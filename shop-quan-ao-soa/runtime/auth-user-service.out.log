@@ -1,0 +1,49 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-10-06T13:20:23.320+07:00  INFO 19080 --- [auth-user-service] [           main] vn.shop.auth.AuthApplication             : Starting AuthApplication v1.0.0 using Java 25.0.4 with PID 19080 (C:\Users\LENOVO\Documents\GitHub\nhom10\shop-quan-ao-soa\backend\auth-user-service\target\auth-user-service-1.0.0.jar started by LENOVO in C:\Users\LENOVO\Documents\GitHub\nhom10\shop-quan-ao-soa)
+2026-10-06T13:20:23.322+07:00  INFO 19080 --- [auth-user-service] [           main] vn.shop.auth.AuthApplication             : The following 1 profile is active: "local"
+2026-10-06T13:20:24.269+07:00  INFO 19080 --- [auth-user-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-06T13:20:24.321+07:00  INFO 19080 --- [auth-user-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 5 JPA repository interfaces.
+2026-10-06T13:20:24.969+07:00  INFO 19080 --- [auth-user-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-10-06T13:20:24.990+07:00  INFO 19080 --- [auth-user-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-06T13:20:24.990+07:00  INFO 19080 --- [auth-user-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-10-06T13:20:25.026+07:00  INFO 19080 --- [auth-user-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-06T13:20:25.027+07:00  INFO 19080 --- [auth-user-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1661 ms
+2026-10-06T13:20:25.416+07:00  INFO 19080 --- [auth-user-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-06T13:20:25.555+07:00  INFO 19080 --- [auth-user-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ea84e01
+2026-10-06T13:20:25.557+07:00  INFO 19080 --- [auth-user-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-06T13:20:25.587+07:00  INFO 19080 --- [auth-user-service] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3310/shop_quan_ao_auth?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=UTF-8 (MySQL 8.0)
+2026-10-06T13:20:25.627+07:00  INFO 19080 --- [auth-user-service] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.023s)
+2026-10-06T13:20:25.640+07:00  INFO 19080 --- [auth-user-service] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema `shop_quan_ao_auth`: 2
+2026-10-06T13:20:25.645+07:00  INFO 19080 --- [auth-user-service] [           main] o.f.core.internal.command.DbMigrate      : Schema `shop_quan_ao_auth` is up to date. No migration necessary.
+2026-10-06T13:20:25.722+07:00  INFO 19080 --- [auth-user-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-06T13:20:25.792+07:00  INFO 19080 --- [auth-user-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.53.Final
+2026-10-06T13:20:25.821+07:00  INFO 19080 --- [auth-user-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-06T13:20:26.075+07:00  INFO 19080 --- [auth-user-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-06T13:20:26.144+07:00  INFO 19080 --- [auth-user-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-06T13:20:26.806+07:00  INFO 19080 --- [auth-user-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-06T13:20:26.833+07:00  INFO 19080 --- [auth-user-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-06T13:20:27.038+07:00  INFO 19080 --- [auth-user-service] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-06T13:20:28.518+07:00  INFO 19080 --- [auth-user-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-10-06T13:20:28.855+07:00  INFO 19080 --- [auth-user-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-10-06T13:20:28.866+07:00  INFO 19080 --- [auth-user-service] [           main] vn.shop.auth.AuthApplication             : Started AuthApplication in 5.976 seconds (process running for 6.469)
+2026-10-06T13:20:28.987+07:00  INFO 19080 --- [auth-user-service] [0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-06T13:20:28.987+07:00  INFO 19080 --- [auth-user-service] [0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-06T13:20:28.989+07:00  INFO 19080 --- [auth-user-service] [0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-10-06T13:20:29.028+07:00  WARN 19080 --- [auth-user-service] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-06T13:20:29.029+07:00  WARN 19080 --- [auth-user-service] [           main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
