@@ -1,0 +1,18 @@
+import React, { useEffect, useState } from 'react';
+import { api, errorMessage, money } from './api';
+
+const localDay = date => { const d = new Date(date); return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); };
+const initial = () => ({ from: localDay(new Date(new Date().getFullYear(), new Date().getMonth(), 1)), to: localDay(new Date()) });
+
+export default function CategoryRevenuePage() {
+  const [range, setRange] = useState(initial), [data, setData] = useState(null), [busy, setBusy] = useState(false), [error, setError] = useState('');
+  const load = async next => { setBusy(true); setError(''); try { setData((await api.get('/reports/categories', { params: next })).data); } catch (e) { setData(null); setError(errorMessage(e)); } finally { setBusy(false); } };
+  useEffect(() => { load(range); }, []);
+  const download = async () => { setBusy(true); setError(''); try { const r = await api.get('/reports/categories.csv', { params: range, responseType: 'blob' }); const url = URL.createObjectURL(r.data); const a = document.createElement('a'); a.href = url; a.download = 'doanh-thu-danh-muc.csv'; document.body.append(a); a.click(); a.remove(); window.setTimeout(() => URL.revokeObjectURL(url), 1000); } catch (e) { setError(errorMessage(e)); } finally { setBusy(false); } };
+  return <><h1>Doanh thu theo danh mục</h1><p>Chỉ đơn COD đã hoàn tất và thu tiền. Doanh thu hàng hóa đã trừ phần trả hàng và phân bổ giảm giá; phí vận chuyển hiển thị riêng. Đơn mới dùng danh mục được lưu lúc đặt hàng; đơn cũ chưa có dữ liệu này dùng danh mục hiện tại.</p>
+    {error && <p role="alert" className="alert alert-danger">{error}</p>}
+    <form className="panel mb-4" onSubmit={e => { e.preventDefault(); if (range.from > range.to) { setError('Ngày bắt đầu phải trước hoặc bằng ngày kết thúc.'); return; } load(range); }}><div className="row g-3"><div className="col-md-6"><label htmlFor="category-from" className="form-label">Từ ngày hoàn tất</label><input id="category-from" type="date" className="form-control" required value={range.from} onChange={e => setRange({ ...range, from: e.target.value })}/></div><div className="col-md-6"><label htmlFor="category-to" className="form-label">Đến ngày hoàn tất</label><input id="category-to" type="date" className="form-control" required value={range.to} onChange={e => setRange({ ...range, to: e.target.value })}/></div></div><div className="d-flex gap-2 mt-3"><button className="btn btn-primary" disabled={busy}>Xem báo cáo</button><button className="btn btn-outline-dark" type="button" disabled={busy || !data} onClick={download}>Xuất CSV</button></div></form>
+    {busy && <p role="status">Đang tổng hợp dữ liệu…</p>}
+    {data && <><div className="row g-3 mb-4">{[['Doanh thu hàng hóa',data.merchandiseRevenue],['Phí vận chuyển',data.shippingRevenue],['Tổng COD đã thu sau hoàn',data.totalRevenue]].map(([label,value]) => <div className="col-md-4" key={label}><section className="panel h-100"><p>{label}</p><strong className="fs-4">{money(value)}</strong></section></div>)}</div><section className="panel"><h2>Danh mục</h2>{data.categories.length===0 && <p>Chưa có doanh thu COD trong khoảng đã chọn.</p>}<div className="table-responsive"><table className="table"><thead><tr><th>Danh mục</th><th>Số sản phẩm bán</th><th>Số đơn</th><th>Doanh thu hàng hóa</th></tr></thead><tbody>{data.categories.map(row => <tr key={row.categoryId}><td>{row.categoryName}{row.categoryId===0 && ' (không còn trong Catalog)'}</td><td>{row.quantity}</td><td>{row.orderCount}</td><td>{money(row.revenue)}</td></tr>)}</tbody></table></div></section></>}
+  </>;
+}
